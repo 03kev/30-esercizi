@@ -22,29 +22,51 @@ const esercizio_operator = (esN, data) => {
         case 8:
             return data
                     .filter((e, i) => i%2 === 0)
-                    .reduce((acc, e) => acc +=e)
+                    .reduce((acc, e) => acc += e)
         case 9:
+            return null
         case 10:
+            return null
         case 11:
+            return null
         case 12:
+            return null
         case 13:
+            return null
         case 14:
+            return null
         case 15:
+            return null
         case 16:
+            return null
         case 17:
+            return null
         case 18:
+            return null
         case 19:
+            return null
         case 20:
+            return null
         case 21:
+            return null
         case 22:
+            return null
         case 23:
+            return null
         case 24:
+            return null
         case 25:
+            return null
         case 26:
+            return null
         case 27:
+            return null
         case 28:
+            return null
         case 29:
+            return null
         case 30:
+            return null
         default:
             console.log(`L'esercizio ${esN} non e' presente.`)
             return null
@@ -76,7 +98,7 @@ const esercizio = (esN) => {
     .then(res => res.json())
     .then(resBody => {
         const data = resBody.data
-        let risultato = esercizio_operator(esN, data)
+        let risultato = esercizio_operator (esN, data)
 
         return fetch(`http://192.168.1.231:8080/esercizi/${esN}`, {
             method: "post",
@@ -93,7 +115,17 @@ const esercizio = (esN) => {
     .catch(err => console.log(err))
 }
 
-let esNumber = +prompt("Esercizio da svolgere: ")
-isNaN(esNumber)? 
-    accreditamento(): 
-    esercizio(esNumber)
+console.log("Opzioni di input:\n\t- 'acc' per l'accreditamento\n\t- numero dell'esercizio da svolgere")
+let input = prompt()
+while(true) {
+    if (isNaN(input) === false && input !== "") {
+        esercizio(input)
+        break
+    } else if (input === "acc") {
+        accreditamento()
+        break
+    } else {
+        console.log("Opzione non valida, riprovare:\n\t- 'acc' per l'accreditamento\n\t- numero dell'esercizio da svolgere")
+        input = prompt()
+    }
+}
