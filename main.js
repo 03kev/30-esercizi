@@ -1,8 +1,7 @@
 const fetch = require("node-fetch")
 const prompt = require('prompt-sync')()
 
-//const url = "http://192.168.1.60:8080/" -> server di br1
-const url = "http://192.168.1.22:8080"
+const url = "http://192.168.1.231:8080"
 const name = "Kevin Muka"
 
 const esercizio_operator = (esN, data) => {
